@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
 
-export default function findDiff (filePath1, filePath2) {
+export default function findDiff(filePath1, filePath2) {
   const firstFile = fs.readFileSync(path.resolve(process.cwd(), `${filePath1}`), 'utf-8');
   const secondFile = fs.readFileSync(path.resolve(process.cwd(), `${filePath2}`), 'utf-8');
 
@@ -15,10 +15,10 @@ export default function findDiff (filePath1, filePath2) {
   const diff = ['{\n'];
   firstObjKeys.forEach((key) => {
     const valueOfFirstObj = firstObj[key];
+    const valueOfSecondObj = secondObj[key];
     const hasObjKey = _.has(secondObj, key);
     switch (hasObjKey) {
       case true:
-        const valueOfSecondObj = secondObj[key];
         if (valueOfSecondObj === valueOfFirstObj) diff.push(`    ${key}: ${valueOfFirstObj}\n`);
         else {
           diff.push(`  + ${key}: ${valueOfSecondObj}\n`);
