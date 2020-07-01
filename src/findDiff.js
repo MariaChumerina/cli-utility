@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import _ from 'lodash';
 
 export default function findDiff (filePath1, filePath2) {
   const firstFile = fs.readFileSync(path.resolve(process.cwd(), `${filePath1}`), 'utf-8');
@@ -13,23 +14,28 @@ export default function findDiff (filePath1, filePath2) {
 
   const diff = ['{\n'];
   firstObjKeys.forEach((key) => {
-    const firstValue = firstObj[key];
-    if (secondObj.hasOwnProperty(key)) {
-      const secondValue = secondObj[key];
-      if (secondValue === firstValue) diff.push(`    ${key}: ${firstValue}\n`);
-      else {
-        diff.push(`  + ${key}: ${secondValue}\n`);
-        diff.push(`  - ${key}: ${firstValue}\n`);
-      }
-    } else if (!secondObj.hasOwnProperty(key)) {
-      diff.push(`  - ${key}: ${firstValue}\n`);
+    const valueOfFirstObj = firstObj[key];
+    const hasObjKey = _.has(secondObj, key);
+    switch (hasObjKey) {
+      case true:
+        const valueOfSecondObj = secondObj[key];
+        if (valueOfSecondObj === valueOfFirstObj) diff.push(`    ${key}: ${valueOfFirstObj}\n`);
+        else {
+          diff.push(`  + ${key}: ${valueOfSecondObj}\n`);
+          diff.push(`  - ${key}: ${valueOfFirstObj}\n`);
+        }
+        break;
+      case false:
+        diff.push(`  - ${key}: ${valueOfFirstObj}\n`);
+        break;
+      default: throw new Error('Something went wrong');
     }
   });
 
   secondObjKeys.forEach((key) => {
-    const secondValue = secondObj[key];
-    if (!firstObj.hasOwnProperty(key)) {
-      diff.push(`  + ${key}: ${secondValue}\n`);
+    const valueOfSecondObj = secondObj[key];
+    if (!_.has(firstObj, key)) {
+      diff.push(`  + ${key}: ${valueOfSecondObj}\n`);
     }
   });
   diff.push('}');
