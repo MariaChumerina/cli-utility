@@ -3,8 +3,8 @@ import path from 'path';
 import findDiff from '../src/findDiff.js';
 
 const getFixturePath = (filename) => path.join('__fixtures__', filename);
-const filePath1 = getFixturePath('file1.json');
-const filePath2 = getFixturePath('file2.json');
+const [beforeJson, afterJson] = [getFixturePath('before.json'), getFixturePath('after.json')];
+const [beforeYaml, afterYaml] = [getFixturePath('before.yaml'), getFixturePath('after.yaml')];
 
 const expectedDiff = '{\n'
     + '    host: hexlet.io\n'
@@ -16,5 +16,6 @@ const expectedDiff = '{\n'
     + '}';
 
 test('findDiff', () => {
-  expect(findDiff(`${filePath1}`, `${filePath2}`)).toEqual(expectedDiff);
+  expect(findDiff(`${beforeJson}`, `${afterJson}`)).toEqual(expectedDiff);
+  expect(findDiff(`${beforeYaml}`, `${afterYaml}`)).toEqual(expectedDiff);
 });
