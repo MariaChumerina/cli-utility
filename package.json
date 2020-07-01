@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/MariaChumerina/frontend-project-lvl2#readme",
   "type": "module",
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
+  },
   "dependencies": {
     "@jest/globals": "^26.1.0",
     "commander": "^5.1.0",
