@@ -1,6 +1,9 @@
 install:
 	npm install
 
+run:
+	bin/gendiff.js
+
 publish:
 	npm publish --dry-run
 
@@ -15,3 +18,5 @@ test:
 
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
+
+.PHONY: test
