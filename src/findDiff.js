@@ -1,13 +1,9 @@
-import fs from 'fs';
-import path from 'path';
 import _ from 'lodash';
+import parse from '../parsers.js';
 
 export default function findDiff(filePath1, filePath2) {
-  const firstFile = fs.readFileSync(path.resolve(process.cwd(), `${filePath1}`), 'utf-8');
-  const secondFile = fs.readFileSync(path.resolve(process.cwd(), `${filePath2}`), 'utf-8');
-
-  const firstObj = JSON.parse(firstFile);
-  const secondObj = JSON.parse(secondFile);
+  const firstObj = parse(filePath1);
+  const secondObj = parse(filePath2);
 
   const firstObjKeys = Object.keys(firstObj);
   const secondObjKeys = Object.keys(secondObj);
