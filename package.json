@@ -1,7 +1,7 @@
 {
   "name": "gendiff",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cli utility for calculating the difference in configuration files",
   "main": "index.js",
   "scripts": {
     "test": "npx -n --experimental-vm-modules jest"
