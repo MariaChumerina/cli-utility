@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx -n --experimental-vm-modules jest"
   },
   "repository": {
     "type": "git",
@@ -18,20 +18,23 @@
   "homepage": "https://github.com/MariaChumerina/frontend-project-lvl2#readme",
   "type": "module",
   "dependencies": {
+    "@jest/globals": "^26.1.0",
     "commander": "^5.1.0",
     "lodash": "^4.17.15"
   },
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
+  "engines": {
+    "node": ">=14"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.10.4",
-    "@babel/node": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
     "@types/node": "^14.0.14",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.1",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.10.0",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1"
   }
 }
