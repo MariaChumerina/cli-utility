@@ -2,7 +2,7 @@
   "name": "gendiff",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,12 +18,17 @@
   "homepage": "https://github.com/MariaChumerina/frontend-project-lvl2#readme",
   "type": "module",
   "dependencies": {
-    "commander": "^5.1.0"
+    "commander": "^5.1.0",
+    "lodash": "^4.17.15"
   },
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
   "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
     "@types/node": "^14.0.14",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
