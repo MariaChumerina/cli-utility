@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+import ini from 'ini';
 
 export default function parse(filename) {
   const format = path.extname(filename);
@@ -13,6 +14,9 @@ export default function parse(filename) {
       break;
     case '.yaml':
       result = yaml.safeLoad(readingFile);
+      break;
+    case '.ini':
+      result = ini.parse(readingFile);
       break;
     default: throw new Error('Unknown format');
   }
