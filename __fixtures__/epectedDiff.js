@@ -1,5 +1,5 @@
 export default function getExpectedDiff() {
-  return  '{\n'
+  return '{\n'
       + '    host: hexlet.io\n'
       + '  + timeout: 20\n'
       + '  - timeout: 50\n'
