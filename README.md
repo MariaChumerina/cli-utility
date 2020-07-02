@@ -13,4 +13,5 @@ make link<br/>
 <h3>Usage</h3>
 gendiff filepath1 filepath2<br/>
 <br/>
+
 [![asciicast](https://asciinema.org/a/W3PCE5mJwnjcErTscaMEp6NiS.svg)](https://asciinema.org/a/W3PCE5mJwnjcErTscaMEp6NiS)
