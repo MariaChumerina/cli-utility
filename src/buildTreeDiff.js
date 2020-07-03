@@ -1,11 +1,7 @@
 import _ from 'lodash';
-import parse from '../parsers.js';
-import formatToStr from './stylish.js';
 
 export default function buildTreeDiff(original, modified) {
   if (original.length < 1 || modified.length < 1) return 'Invalid file name';
-  const firstObj = parse(original);
-  const secondObj = parse(modified);
 
   const iter = (first, second) => {
     const keys = _.union(Object.keys(first), Object.keys(second));
@@ -31,6 +27,5 @@ export default function buildTreeDiff(original, modified) {
       return null;
     });
   };
-  const diffTree = iter(firstObj, secondObj);
-  return formatToStr(diffTree);
+  return iter(original, modified);
 }
