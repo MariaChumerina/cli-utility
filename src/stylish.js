@@ -8,14 +8,14 @@ export default function formatToStr(tree) {
   const iter = (subTree, depth = 1) => {
     const formatted = subTree.flatMap((node) => {
       const {
-        key, modified, beforeValue, afterValue,
+        key, modified, beforeValue, afterValue, children,
       } = node;
       const tab = 4;
       const countSpaces = depth * tab;
       const formattedBeforeValue = typeof beforeValue === 'object' ? formatObj(beforeValue, depth + 1) : beforeValue;
       const formattedAfterValue = typeof afterValue === 'object' ? formatObj(afterValue, depth + 1) : afterValue;
-      if (node.children) {
-        const formattedChildren = iter(node.children, depth + 1);
+      if (children) {
+        const formattedChildren = iter(children, depth + 1);
         return `${' '.repeat(countSpaces)}${key}: ${formattedChildren}${' '.repeat(countSpaces)}}\n`;
       }
       switch (modified) {
