@@ -1,8 +1,10 @@
 export default function formatToStr(tree) {
   function formatObj(obj, depth) {
-    const countSpaces = depth * 4;
+    const countOfSpaces = depth * 4;
+    const spaces = ' '.repeat(countOfSpaces);
+    const shortSpaces = ' '.repeat(countOfSpaces - 4);
     const keyAndValues = Object.entries(obj);
-    return keyAndValues.reduce((acc, [key, value]) => `{\n${' '.repeat(countSpaces)}${key}: ${value}\n${' '.repeat(countSpaces - 4)}}`, '');
+    return keyAndValues.reduce((acc, [key, value]) => `{\n${spaces}${key}: ${value}\n${shortSpaces}}`, '');
   }
 
   const iter = (subTree, depth = 1) => {
@@ -11,22 +13,24 @@ export default function formatToStr(tree) {
         key, modified, beforeValue, afterValue, children,
       } = node;
       const tab = 4;
-      const countSpaces = depth * tab;
+      const countOfSpaces = depth * tab;
+      const spaces = ' '.repeat(countOfSpaces);
+      const shortSpaces = ' '.repeat(countOfSpaces - 2);
       const formattedBeforeValue = typeof beforeValue === 'object' ? formatObj(beforeValue, depth + 1) : beforeValue;
       const formattedAfterValue = typeof afterValue === 'object' ? formatObj(afterValue, depth + 1) : afterValue;
       if (children) {
         const formattedChildren = iter(children, depth + 1);
-        return `${' '.repeat(countSpaces)}${key}: ${formattedChildren}${' '.repeat(countSpaces)}}\n`;
+        return `${spaces}${key}: ${formattedChildren}${spaces}}\n`;
       }
       switch (modified) {
         case 'unchanged':
-          return `${' '.repeat(countSpaces)}${key}: ${formattedBeforeValue}\n`;
+          return `${spaces}${key}: ${formattedBeforeValue}\n`;
         case 'inserted':
-          return `${' '.repeat(countSpaces - 2)}+ ${key}: ${formattedAfterValue}\n`;
+          return `${shortSpaces}+ ${key}: ${formattedAfterValue}\n`;
         case 'deleted':
-          return `${' '.repeat(countSpaces - 2)}- ${key}: ${formattedBeforeValue}\n`;
+          return `${shortSpaces}- ${key}: ${formattedBeforeValue}\n`;
         case 'changed':
-          return `${' '.repeat(countSpaces - 2)}- ${key}: ${formattedBeforeValue}\n${' '.repeat(countSpaces - 2)}+ ${key}: ${formattedAfterValue}\n`;
+          return `${shortSpaces}- ${key}: ${formattedBeforeValue}\n${shortSpaces}+ ${key}: ${formattedAfterValue}\n`;
         default: throw new Error('error');
       }
     });

@@ -9,7 +9,8 @@ export default function genDiff() {
     .arguments('<filepath1> <filepath1>')
     .option('-f, --format [type]', 'output format')
     .action((filepath1, filepath2) => {
-      buildTreeDiff(filepath1, filepath2);
+      const diff = buildTreeDiff(filepath1, filepath2);
+      console.log(diff);
     })
     .parse(process.argv);
 }

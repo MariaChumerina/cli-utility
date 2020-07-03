@@ -17,7 +17,7 @@ export default function buildTreeDiff(original, modified) {
       if (hasFirstKey && hasSecondKey) {
         if (typeof beforeValue === 'object' && typeof afterValue === 'object') {
           return [{
-            modified: 'unchanged', key, beforeValue: 'object', children: [...iter(beforeValue, afterValue)],
+            modified: 'unchanged', key, beforeValue, children: [...iter(beforeValue, afterValue)],
           }];
         }
         if (beforeValue === afterValue) return [{ modified: 'unchanged', key, beforeValue }];
@@ -32,6 +32,5 @@ export default function buildTreeDiff(original, modified) {
     });
   };
   const diffTree = iter(firstObj, secondObj);
-  console.log(formatToStr(diffTree));
   return formatToStr(diffTree);
 }
