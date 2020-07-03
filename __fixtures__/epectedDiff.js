@@ -1,4 +1,4 @@
-export function getDiff() {
+export default function getDiff() {
   return '{\n'
       + '    common: {\n'
       + '        setting1: Value 1\n'
@@ -34,4 +34,3 @@ export function getDiff() {
       + '    }\n'
       + '}';
 }
-

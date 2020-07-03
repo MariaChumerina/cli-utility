@@ -1,7 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
 import path from 'path';
 import buildDiff from '../src/buildDiff.js';
-import { getDiff } from '../__fixtures__/epectedDiff.js';
+import getDiff from '../__fixtures__/epectedDiff.js';
 
 const getFixturePath = (filename) => path.join('__fixtures__', filename);
 const [beforeJson, afterJson] = [getFixturePath('before.json'), getFixturePath('after.json')];

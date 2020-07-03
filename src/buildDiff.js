@@ -9,10 +9,10 @@ export default function buildDiff(original, modified) {
 
   const iter = (first, second) => {
     const keys = _.union(Object.keys(first), Object.keys(second));
-    return keys.flatMap(( key) => {
-      const value = first[key];
+    return keys.flatMap((key) => {
+      const beforeValue = first[key];
       const comparedValue = second[key];
-      const typeValue = typeof value;
+      const typeValue = typeof beforeValue;
       const typeComparedValue = typeof comparedValue;
       const hasSecondKey = _.has(second, key);
       const hasFirstKey = _.has(first, key);
@@ -20,28 +20,29 @@ export default function buildDiff(original, modified) {
         switch (hasSecondKey) {
           case true:
             if (typeValue === 'object' && typeComparedValue === 'object') {
-              return [{modified: 'unchanged', key: key, value: 'object', children: [...iter(value, comparedValue)]}];
-            } else if (typeValue === 'object' || typeComparedValue === 'object') {
-              return [{modified: 'changed', key: key, beforeValue: value, afterValue: comparedValue}];
-            } else if (value === comparedValue) {
-              return [{modified: 'unchanged', key: key, value: value}];
-            } else if (value !== comparedValue) {
-              return [{modified: 'changed', key: key, beforeValue: value, afterValue: comparedValue}];
+              return [{
+                modified: 'unchanged', key, beforeValue: 'object', children: [...iter(beforeValue, comparedValue)],
+              }];
+            } if (beforeValue === comparedValue) {
+              return [{ modified: 'unchanged', key, beforeValue }];
+            } if (beforeValue !== comparedValue) {
+              return [{
+                modified: 'changed', key, beforeValue, afterValue: comparedValue,
+              }];
             }
             break;
           case false:
-            return [{modified: 'deleted', key: key, value: value}];
+            return [{ modified: 'deleted', key, beforeValue }];
           default:
             throw new Error('Whaaaaaaaaaaaat?!');
         }
       } else {
-        return [{modified: 'inserted', key: key, value: comparedValue}];
+        return [{ modified: 'inserted', key, afterValue: comparedValue }];
       }
     });
-  }
+  };
   const diffTree = iter(firstObj, secondObj);
 
   console.log(formatToStr(diffTree));
   return formatToStr(diffTree);
 }
-
