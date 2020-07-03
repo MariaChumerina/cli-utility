@@ -1,8 +1,9 @@
+
 function formatObj(obj, depth) {
   const countSpaces = depth * 4;
   const keyAndValues = Object.entries(obj);
   return  keyAndValues.reduce((acc, [key, value]) => {
-    return `{\n${' '.repeat(countSpaces)}${key}: ${value}\n${' '.repeat(countSpaces)}}`;
+    return `{\n${' '.repeat(countSpaces)}${key}: ${value}\n${' '.repeat(countSpaces - 4)}}`;
   }, '');
 }
 
@@ -33,7 +34,7 @@ export default function formatToStr(tree) {
         const { beforeValue, afterValue } = node;
         const modBeforeValue = typeof beforeValue === 'object' ? formatObj(beforeValue, depth + 1) : beforeValue;
         const modAfterValue = typeof afterValue === 'object' ? formatObj(afterValue, depth + 1) : afterValue;
-        return `${' '.repeat(countSpaces - 2)}+ ${key}: ${modAfterValue}\n${' '.repeat(countSpaces - 2)}- ${key}: ${modBeforeValue}\n`;
+        return `${' '.repeat(countSpaces - 2)}- ${key}: ${modBeforeValue}\n${' '.repeat(countSpaces - 2)}+ ${key}: ${modAfterValue}\n`;
       }
     });
     const begin = '{\n';
@@ -42,5 +43,6 @@ export default function formatToStr(tree) {
   }
   const formatted = iter(tree);
   const end = '}';
+
   return formatted.concat(end);
 }

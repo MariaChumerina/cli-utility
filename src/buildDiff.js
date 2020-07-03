@@ -41,8 +41,6 @@ export default function buildDiff(original, modified) {
   }
   const diffTree = iter(firstObj, secondObj);
 
-  // fs.writeFileSync('result.js', JSON.stringify(diffTree)
-  //     , 'utf-8' );
   console.log(formatToStr(diffTree));
   return formatToStr(diffTree);
 }
