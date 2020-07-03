@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 import path from 'path';
-import findDiff from '../src/findDiff.js';
+import buildDiff from '../src/buildDiff.js';
 import getExpectedDiff from '../__fixtures__/epectedDiff.js';
 
 const getFixturePath = (filename) => path.join('__fixtures__', filename);
@@ -11,8 +11,8 @@ const [beforeIni, afterIni] = [getFixturePath('before.ini'), getFixturePath('aft
 const expectedDiff = getExpectedDiff();
 describe('findDiff', () => {
   test('should work ok', () => {
-    expect(findDiff(`${beforeJson}`, `${afterJson}`)).toEqual(expectedDiff);
-    expect(findDiff(`${beforeYaml}`, `${afterYaml}`)).toEqual(expectedDiff);
-    expect(findDiff(`${beforeIni}`, `${afterIni}`)).toEqual(expectedDiff);
+    expect(buildDiff(`${beforeJson}`, `${afterJson}`)).toEqual(expectedDiff);
+    expect(buildDiff(`${beforeYaml}`, `${afterYaml}`)).toEqual(expectedDiff);
+    expect(buildDiff(`${beforeIni}`, `${afterIni}`)).toEqual(expectedDiff);
   });
 });
