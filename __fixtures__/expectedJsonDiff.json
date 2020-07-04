@@ -1,0 +1,140 @@
+[
+  {
+    "modified": "changed",
+    "key": "common",
+    "beforeValue": {
+      "setting1": "Value 1",
+      "setting2": 200,
+      "setting3": true,
+      "setting6": {
+        "key": "value"
+      }
+    },
+    "afterValue": {
+      "follow": false,
+      "setting1": "Value 1",
+      "setting3": {
+        "key": "value"
+      },
+      "setting4": "blah blah",
+      "setting5": {
+        "key5": "value5"
+      },
+      "setting6": {
+        "key": "value",
+        "ops": "vops"
+      }
+    },
+    "children": [
+      {
+        "modified": "unchanged",
+        "key": "setting1",
+        "beforeValue": "Value 1"
+      },
+      {
+        "modified": "deleted",
+        "key": "setting2",
+        "beforeValue": 200
+      },
+      {
+        "modified": "changed",
+        "key": "setting3",
+        "beforeValue": true,
+        "afterValue": {
+          "key": "value"
+        }
+      },
+      {
+        "modified": "changed",
+        "key": "setting6",
+        "beforeValue": {
+          "key": "value"
+        },
+        "afterValue": {
+          "key": "value",
+          "ops": "vops"
+        },
+        "children": [
+          {
+            "modified": "unchanged",
+            "key": "key",
+            "beforeValue": "value"
+          },
+          {
+            "modified": "inserted",
+            "key": "ops",
+            "afterValue": "vops"
+          }
+        ]
+      },
+      {
+        "modified": "inserted",
+        "key": "follow",
+        "afterValue": false
+      },
+      {
+        "modified": "inserted",
+        "key": "setting4",
+        "afterValue": "blah blah"
+      },
+      {
+        "modified": "inserted",
+        "key": "setting5",
+        "afterValue": {
+          "key5": "value5"
+        }
+      }
+    ]
+  },
+  {
+    "modified": "changed",
+    "key": "group1",
+    "beforeValue": {
+      "baz": "bas",
+      "foo": "bar",
+      "nest": {
+        "key": "value"
+      }
+    },
+    "afterValue": {
+      "foo": "bar",
+      "baz": "bars",
+      "nest": "str"
+    },
+    "children": [
+      {
+        "modified": "changed",
+        "key": "baz",
+        "beforeValue": "bas",
+        "afterValue": "bars"
+      },
+      {
+        "modified": "unchanged",
+        "key": "foo",
+        "beforeValue": "bar"
+      },
+      {
+        "modified": "changed",
+        "key": "nest",
+        "beforeValue": {
+          "key": "value"
+        },
+        "afterValue": "str"
+      }
+    ]
+  },
+  {
+    "modified": "deleted",
+    "key": "group2",
+    "beforeValue": {
+      "abc": 12345
+    }
+  },
+  {
+    "modified": "inserted",
+    "key": "group3",
+    "afterValue": {
+      "fee": 100500
+    }
+  }
+]

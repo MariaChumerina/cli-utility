@@ -33,7 +33,5 @@ export default function formatPlain(tree) {
       default: throw new Error('Unknown property');
     }
   });
-
-  const result = iter(tree);
-  return result.join('\n');
+  return iter(tree).join('\n');
 }
