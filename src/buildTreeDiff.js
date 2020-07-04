@@ -11,12 +11,12 @@ export default function buildTreeDiff(original, modified) {
       const hasSecondKey = _.has(second, key);
       const hasFirstKey = _.has(first, key);
       if (hasFirstKey && hasSecondKey) {
-        if (typeof beforeValue === 'object' && typeof afterValue === 'object') {
-          if (_.isEqual(beforeValue, afterValue)) {
-            return [{
-              modified: 'unchanged', key, beforeValue, children: [...iter(beforeValue, afterValue)],
-            }];
-          } return [{
+        if (typeof beforeValue === 'object' && typeof afterValue === 'object' && _.isEqual(beforeValue, afterValue)) {
+          return [{
+            modified: 'unchanged', key, beforeValue, children: [...iter(beforeValue, afterValue)],
+          }];
+        } if (typeof beforeValue === 'object' && typeof afterValue === 'object') {
+          return [{
             modified: 'changed', key, beforeValue, afterValue, children: [...iter(beforeValue, afterValue)],
           }];
         }

@@ -1,17 +1,16 @@
 export default function formatStylish(tree) {
   function formatObj(obj, depth) {
-    const countOfSpaces = depth * 4;
-    const spaces = ' '.repeat(countOfSpaces);
-    const shortSpaces = ' '.repeat(countOfSpaces - 4);
-    const keyAndValues = Object.entries(obj);
-    return keyAndValues.reduce((acc, [key, value]) => `{\n${spaces}${key}: ${value}\n${shortSpaces}}`, '');
+    const tab = 4;
+    const spaces = ' '.repeat(depth * tab);
+    const shortSpaces = ' '.repeat(depth * tab - tab);
+    return Object.entries(obj).reduce((acc, [key, value]) => `{\n${spaces}${key}: `
+      + `${value}\n${shortSpaces}}`, '');
   }
 
   const iter = (subTree, depth = 1) => {
-    const formatted = subTree.flatMap((node) => {
-      const {
-        key, modified, beforeValue, afterValue, children,
-      } = node;
+    const formatted = subTree.flatMap(({
+      key, modified, beforeValue, afterValue, children,
+    }) => {
       const tab = 4;
       const countOfSpaces = depth * tab;
       const spaces = ' '.repeat(countOfSpaces);
