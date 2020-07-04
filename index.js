@@ -1,20 +1,19 @@
 import buildTreeDiff from './src/buildTreeDiff.js';
-import formatToStr from './src/stylish.js';
+import formatStylish from './src/formatters/stylish.js';
 import parse from './parsers.js';
+import formatPlain from './src/formatters/plain.js';
 
-export default function genDifference(filePath1, filePath2, format = 'Default format') {
+export default function genDifference(filePath1, filePath2, format = 'default') {
   const firstObj = parse(filePath1);
   const secondObj = parse(filePath2);
 
-  let diffTree;
+  const diffTree = buildTreeDiff(firstObj, secondObj);
   switch (format) {
-    case 'Default format':
-      diffTree = buildTreeDiff(firstObj, secondObj);
-      break;
+    case 'default':
+      return formatStylish(diffTree);
+    case 'plain':
+      return formatPlain(diffTree);
     default:
-      console.log(`Unknown format ${format}`);
-      break;
+      return `Unknown format ${format}`;
   }
-
-  return formatToStr(diffTree);
 }

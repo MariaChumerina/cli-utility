@@ -1,4 +1,4 @@
-export default function formatToStr(tree) {
+export default function formatStylish(tree) {
   function formatObj(obj, depth) {
     const countOfSpaces = depth * 4;
     const spaces = ' '.repeat(countOfSpaces);
