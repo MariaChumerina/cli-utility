@@ -16,7 +16,7 @@ export default function formatStylish(tree) {
       const shortSpaces = ' '.repeat(depth * tab - tab / 2);
       const formattedBeforeValue = typeof beforeValue === 'object' ? formatObj(beforeValue, depth + 1) : beforeValue;
       const formattedAfterValue = typeof afterValue === 'object' ? formatObj(afterValue, depth + 1) : afterValue;
-      if (children) {
+      if (children.length > 0) {
         const formattedChildren = iter(children, depth + 1);
         return `${spaces}${key}: ${formattedChildren}${spaces}}\n`;
       }

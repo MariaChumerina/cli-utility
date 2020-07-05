@@ -29,12 +29,15 @@
       {
         "modified": "unchanged",
         "key": "setting1",
-        "beforeValue": "Value 1"
+        "beforeValue": "Value 1",
+        "afterValue": "Value 1",
+        "children": []
       },
       {
         "modified": "deleted",
         "key": "setting2",
-        "beforeValue": 200
+        "beforeValue": 200,
+        "children": []
       },
       {
         "modified": "changed",
@@ -42,7 +45,8 @@
         "beforeValue": true,
         "afterValue": {
           "key": "value"
-        }
+        },
+        "children": []
       },
       {
         "modified": "changed",
@@ -58,31 +62,37 @@
           {
             "modified": "unchanged",
             "key": "key",
-            "beforeValue": "value"
+            "beforeValue": "value",
+            "afterValue": "value",
+            "children": []
           },
           {
             "modified": "inserted",
             "key": "ops",
-            "afterValue": "vops"
+            "afterValue": "vops",
+            "children": []
           }
         ]
       },
       {
         "modified": "inserted",
         "key": "follow",
-        "afterValue": false
+        "afterValue": false,
+        "children": []
       },
       {
         "modified": "inserted",
         "key": "setting4",
-        "afterValue": "blah blah"
+        "afterValue": "blah blah",
+        "children": []
       },
       {
         "modified": "inserted",
         "key": "setting5",
         "afterValue": {
           "key5": "value5"
-        }
+        },
+        "children": []
       }
     ]
   },
@@ -106,12 +116,15 @@
         "modified": "changed",
         "key": "baz",
         "beforeValue": "bas",
-        "afterValue": "bars"
+        "afterValue": "bars",
+        "children": []
       },
       {
         "modified": "unchanged",
         "key": "foo",
-        "beforeValue": "bar"
+        "beforeValue": "bar",
+        "afterValue": "bar",
+        "children": []
       },
       {
         "modified": "changed",
@@ -119,7 +132,8 @@
         "beforeValue": {
           "key": "value"
         },
-        "afterValue": "str"
+        "afterValue": "str",
+        "children": []
       }
     ]
   },
@@ -128,13 +142,15 @@
     "key": "group2",
     "beforeValue": {
       "abc": 12345
-    }
+    },
+    "children": []
   },
   {
     "modified": "inserted",
     "key": "group3",
     "afterValue": {
       "fee": 100500
-    }
+    },
+    "children": []
   }
 ]

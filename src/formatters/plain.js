@@ -18,7 +18,7 @@ export default function formatPlain(tree) {
     const fullKey = parent ? `${parent}.${key}` : key;
     const formattedBeforeValue = formatValue(beforeValue);
     const formattedAfterValue = formatValue(afterValue);
-    if (children && modified === 'changed') {
+    if (children.length > 0 && modified === 'changed') {
       return iter(children, fullKey);
     }
     switch (modified) {

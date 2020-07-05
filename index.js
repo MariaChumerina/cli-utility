@@ -5,6 +5,8 @@ import formatPlain from './src/formatters/plain.js';
 import formatJson from './src/formatters/json.js';
 
 export default function genDifference(filePath1, filePath2, format = 'default') {
+  if (filePath1.length < 1 || filePath2.length < 1) return 'Invalid file name';
+
   const firstObj = parse(filePath1);
   const secondObj = parse(filePath2);
 
