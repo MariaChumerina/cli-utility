@@ -15,7 +15,7 @@ gendiff filepath1 filepath2<br/>
 <br/>
 
 Differense of files with flat structure<br/>
-Stylish format(default)
+Stylish format(default)<br/>
 [![asciicast](https://asciinema.org/a/0nXcGKbnBEX1yn8nko7PgszSr.svg)](https://asciinema.org/a/0nXcGKbnBEX1yn8nko7PgszSr) <br/>
 Plain format<br/>
 [![asciicast](https://asciinema.org/a/PPRpRJtINLZ9tOqdnD2cLJBlU.svg)](https://asciinema.org/a/PPRpRJtINLZ9tOqdnD2cLJBlU) <br/>
