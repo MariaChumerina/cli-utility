@@ -32,10 +32,7 @@ export default function formatPlain(tree) {
   const iter = (subtree, parent = null) => subtree.flatMap((node) => {
     const { key, children } = node;
     const fullKey = parent ? `${parent}.${key}` : key;
-    if (children.length > 0) {
-      return iter(children, fullKey);
-    }
-    return formatStr(node, fullKey);
+    return children.length > 0 ? iter(children, fullKey) : formatStr(node, fullKey);
   });
   return iter(tree).join('\n');
 }
