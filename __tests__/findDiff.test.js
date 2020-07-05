@@ -4,9 +4,7 @@ import fs from 'fs';
 import genDifference from '../index.js';
 
 const getFixturePath = (filename) => path.join('__fixtures__', filename);
-
 const extensions = ['.json', '.yaml', '.ini'];
-
 const expectedStylishDiff = fs.readFileSync('__fixtures__/expectedStylishDiff', 'utf-8');
 const expectedPlainDiff = fs.readFileSync('__fixtures__/expectedPlainDiff', 'utf-8');
 const expectedJsonDiff = fs.readFileSync('__fixtures__/expectedJsonDiff.json', 'utf-8');
@@ -19,15 +17,6 @@ describe('findDiff', () => {
       expect(genDifference(`${filename1}`, `${filename2}`)).toEqual(expectedStylishDiff);
       expect(genDifference(`${filename1}`, `${filename2}`, 'plain')).toEqual(expectedPlainDiff);
       expect(genDifference(`${filename1}`, `${filename2}`, 'json')).toEqual(expectedJsonDiff);
-    });
-  });
-  test('shouldn\'t work', () => {
-    extensions.forEach((extension) => {
-      const filename1 = getFixturePath(`before${extension}`);
-      const filename2 = getFixturePath(`after${extension}`);
-      expect(genDifference(`${filename2}`)).toEqual('Invalid file name');
-      expect(genDifference(`${filename1}`)).toEqual('Invalid file name');
-      expect(genDifference('', 'json')).toEqual('Invalid file name');
     });
   });
 });
