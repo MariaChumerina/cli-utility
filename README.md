@@ -14,4 +14,9 @@ make link<br/>
 gendiff filepath1 filepath2<br/>
 <br/>
 
-[![asciicast](https://asciinema.org/a/W3PCE5mJwnjcErTscaMEp6NiS.svg)](https://asciinema.org/a/W3PCE5mJwnjcErTscaMEp6NiS)
+Stylish forma<br/>
+[![asciicast](https://asciinema.org/a/6sTwuA2ZYJeYSGnacuF0dYfGb.svg)](https://asciinema.org/a/6sTwuA2ZYJeYSGnacuF0dYfGb)
+Plain format<br/>
+[![asciicast](https://asciinema.org/a/ynj0doQQ2pWqerk9bDNrTIcNT.svg)](https://asciinema.org/a/ynj0doQQ2pWqerk9bDNrTIcNT)
+Json format<br/>
+[![asciicast](https://asciinema.org/a/Ifn6NA8MtNulXkBa1CPkWumxV.svg)](https://asciinema.org/a/Ifn6NA8MtNulXkBa1CPkWumxV)
