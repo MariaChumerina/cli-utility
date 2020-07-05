@@ -12,6 +12,8 @@ export default function genDifference(filePath1, filePath2, format = 'default') 
   switch (format) {
     case 'default':
       return formatStylish(diffTree);
+    case 'stylish':
+      return formatStylish(diffTree);
     case 'plain':
       return formatPlain(diffTree);
     case 'json':
