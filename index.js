@@ -10,8 +10,6 @@ export default function genDiff(filePath1, filePath2, format = 'default') {
 
   const diffTree = buildTreeDiff(firstObj, secondObj);
   switch (format) {
-    case 'default':
-      return formatStylish(diffTree);
     case 'stylish':
       return formatStylish(diffTree);
     case 'plain':
@@ -19,6 +17,6 @@ export default function genDiff(filePath1, filePath2, format = 'default') {
     case 'json':
       return formatJson(diffTree);
     default:
-      return `Unknown format ${format}`;
+      return formatStylish(diffTree);
   }
 }

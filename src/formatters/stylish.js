@@ -21,7 +21,7 @@ function formatStr(node, spaces, depth) {
       return `${spaces}- ${key}: ${formattedBeforeValue}\n`;
     case 'changed':
       return `${spaces}- ${key}: ${formattedBeforeValue}\n${spaces}+ ${key}: ${formattedAfterValue}\n`;
-    default: throw new Error('Unknown key');
+    default: throw new Error('Unknown modified type');
   }
 }
 
