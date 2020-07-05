@@ -16,7 +16,6 @@
       "setting3": {
         "key": "value"
       },
-      "setting4": "blah blah",
       "setting5": {
         "key5": "value5"
       },
@@ -78,12 +77,6 @@
         "modified": "inserted",
         "key": "follow",
         "afterValue": false,
-        "children": []
-      },
-      {
-        "modified": "inserted",
-        "key": "setting4",
-        "afterValue": "blah blah",
         "children": []
       },
       {

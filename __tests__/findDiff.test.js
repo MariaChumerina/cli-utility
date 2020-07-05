@@ -11,6 +11,7 @@ const [beforeIni, afterIni] = [getFixturePath('before.ini'), getFixturePath('aft
 const expectedStylishDiff = fs.readFileSync('__fixtures__/expectedStylishDiff', 'utf-8');
 const expectedPlainDiff = fs.readFileSync('__fixtures__/expectedPlainDiff', 'utf-8');
 const expectedJsonDiff = fs.readFileSync('__fixtures__/expectedJsonDiff.json', 'utf-8');
+
 describe('findDiff', () => {
   test('should be a stylish format', () => {
     expect(genDifference(`${beforeJson}`, `${afterJson}`)).toEqual(expectedStylishDiff);
@@ -25,5 +26,6 @@ describe('findDiff', () => {
   test('should be a json format', () => {
     expect(genDifference(`${beforeJson}`, `${afterJson}`, 'json')).toEqual(expectedJsonDiff);
     expect(genDifference(`${beforeYaml}`, `${afterYaml}`, 'json')).toEqual(expectedJsonDiff);
+    expect(genDifference(`${beforeIni}`, `${afterIni}`, 'json')).toEqual(expectedJsonDiff);
   });
 });
