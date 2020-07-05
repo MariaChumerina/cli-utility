@@ -4,7 +4,7 @@ import formatStylish from './src/formatters/stylish.js';
 import formatPlain from './src/formatters/plain.js';
 import formatJson from './src/formatters/json.js';
 
-export default function genDifference(filePath1, filePath2, format = 'default') {
+export default function genDiff(filePath1, filePath2, format = 'default') {
   const firstObj = parse(filePath1);
   const secondObj = parse(filePath2);
 

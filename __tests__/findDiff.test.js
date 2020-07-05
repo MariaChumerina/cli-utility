@@ -1,7 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
 import path from 'path';
 import fs from 'fs';
-import genDifference from '../index.js';
+import genDiff from '../index.js';
 
 const getFixturePath = (filename) => path.join('__fixtures__', filename);
 const extensions = ['.json', '.yaml', '.ini'];
@@ -14,9 +14,9 @@ describe('findDiff', () => {
     extensions.forEach((extension) => {
       const filename1 = getFixturePath(`before${extension}`);
       const filename2 = getFixturePath(`after${extension}`);
-      expect(genDifference(`${filename1}`, `${filename2}`)).toEqual(expectedStylishDiff);
-      expect(genDifference(`${filename1}`, `${filename2}`, 'plain')).toEqual(expectedPlainDiff);
-      expect(genDifference(`${filename1}`, `${filename2}`, 'json')).toEqual(expectedJsonDiff);
+      expect(genDiff(`${filename1}`, `${filename2}`)).toEqual(expectedStylishDiff);
+      expect(genDiff(`${filename1}`, `${filename2}`, 'plain')).toEqual(expectedPlainDiff);
+      expect(genDiff(`${filename1}`, `${filename2}`, 'json')).toEqual(expectedJsonDiff);
     });
   });
 });
