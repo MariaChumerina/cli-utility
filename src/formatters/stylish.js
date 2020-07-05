@@ -1,6 +1,7 @@
 export default function formatStylish(tree) {
+  const tab = 4;
+
   function formatObj(obj, depth) {
-    const tab = 4;
     const spaces = ' '.repeat(depth * tab);
     const shortSpaces = ' '.repeat(depth * tab - tab);
     return Object.entries(obj).reduce((acc, [key, value]) => `{\n${spaces}${key}: `
@@ -11,10 +12,8 @@ export default function formatStylish(tree) {
     const formatted = subTree.flatMap(({
       key, modified, beforeValue, afterValue, children,
     }) => {
-      const tab = 4;
-      const countOfSpaces = depth * tab;
-      const spaces = ' '.repeat(countOfSpaces);
-      const shortSpaces = ' '.repeat(countOfSpaces - 2);
+      const spaces = ' '.repeat(depth * tab);
+      const shortSpaces = ' '.repeat(depth * tab - tab / 2);
       const formattedBeforeValue = typeof beforeValue === 'object' ? formatObj(beforeValue, depth + 1) : beforeValue;
       const formattedAfterValue = typeof afterValue === 'object' ? formatObj(afterValue, depth + 1) : afterValue;
       if (children) {

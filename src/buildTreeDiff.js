@@ -2,7 +2,6 @@ import _ from 'lodash';
 
 export default function buildTreeDiff(original, modified) {
   if (original.length < 1 || modified.length < 1) return 'Invalid file name';
-
   const iter = (first, second) => {
     const keys = _.union(Object.keys(first), Object.keys(second));
     return keys.flatMap((key) => {
@@ -10,25 +9,25 @@ export default function buildTreeDiff(original, modified) {
       const afterValue = second[key];
       const hasSecondKey = _.has(second, key);
       const hasFirstKey = _.has(first, key);
+      let diff;
       if (hasFirstKey && hasSecondKey) {
         if (typeof beforeValue === 'object' && typeof afterValue === 'object' && _.isEqual(beforeValue, afterValue)) {
-          return [{
+          diff = [{
             modified: 'unchanged', key, beforeValue, children: [...iter(beforeValue, afterValue)],
           }];
-        } if (typeof beforeValue === 'object' && typeof afterValue === 'object') {
-          return [{
+        } else if (typeof beforeValue === 'object' && typeof afterValue === 'object') {
+          diff = [{
             modified: 'changed', key, beforeValue, afterValue, children: [...iter(beforeValue, afterValue)],
           }];
-        }
-        if (beforeValue === afterValue) return [{ modified: 'unchanged', key, beforeValue }];
-        if (beforeValue !== afterValue) {
-          return [{
+        } else if (beforeValue === afterValue) return [{ modified: 'unchanged', key, beforeValue }];
+        else if (beforeValue !== afterValue) {
+          diff = [{
             modified: 'changed', key, beforeValue, afterValue,
           }];
         }
-      } else if (hasFirstKey && !hasSecondKey) return [{ modified: 'deleted', key, beforeValue }];
-      else if (!hasFirstKey && hasSecondKey) return [{ modified: 'inserted', key, afterValue }];
-      return null;
+      } else if (hasFirstKey && !hasSecondKey) diff = [{ modified: 'deleted', key, beforeValue }];
+      else if (!hasFirstKey && hasSecondKey) diff = [{ modified: 'inserted', key, afterValue }];
+      return diff;
     });
   };
   return iter(original, modified);
