@@ -1,16 +1,16 @@
-export default function formatPlain(tree) {
-  function formatValue(value) {
-    const type = typeof value;
-    switch (type) {
-      case 'object':
-        return '[complex value]';
-      case 'string':
-        return `'${value}'`;
-      default:
-        return value;
-    }
+function formatValue(value) {
+  const type = typeof value;
+  switch (type) {
+    case 'object':
+      return '[complex value]';
+    case 'string':
+      return `'${value}'`;
+    default:
+      return value;
   }
+}
 
+export default function formatPlain(tree) {
   const iter = (subtree, parent = null) => subtree.flatMap((node) => {
     const {
       key, modified, beforeValue, afterValue, children,
