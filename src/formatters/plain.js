@@ -28,11 +28,11 @@ function formatStr(node, fullKey) {
   }
 }
 
-export default function formatPlain(tree) {
-  const iter = (subtree, parent = null) => subtree.flatMap((node) => {
+export default function formatPlain(tree, parent = null) {
+  const formattedTree = tree.flatMap((node) => {
     const { key, children } = node;
     const fullKey = parent ? `${parent}.${key}` : key;
-    return children.length > 0 ? iter(children, fullKey) : formatStr(node, fullKey);
+    return children.length > 0 ? formatPlain(children, fullKey) : formatStr(node, fullKey);
   });
-  return iter(tree).join('\n');
+  return formattedTree.join('\n');
 }
