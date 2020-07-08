@@ -9,9 +9,11 @@ Cli utility for calculating the difference in configuration files. Formats: json
 ```sh
 make install
 ```
+
 ```sh
 make pusblish
 ```
+
 ```sh
 make link
 ```
