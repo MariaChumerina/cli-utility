@@ -6,7 +6,7 @@
 Cli utility for calculating the difference in configuration files. Formats: json, yaml, ini.
 <br/>
 <h3>Clone these package and run commands:</h3>
-make install<br/>
+`make install`<br/>
 make pusblish<br/>
 make link<br/>
 <br/>
