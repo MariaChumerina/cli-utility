@@ -26,20 +26,24 @@ gendiff filepath1 filepath2
 ```
 <br/>
 
-Differense of files with flat structure:<br/>
+<b>Differense of files with flat structure:<b/><br/>
 <br/>
 Stylish format(default)<br/>
 [![asciicast](https://asciinema.org/a/0nXcGKbnBEX1yn8nko7PgszSr.svg)](https://asciinema.org/a/0nXcGKbnBEX1yn8nko7PgszSr) <br/>
+<br/>
 Plain format<br/>
 [![asciicast](https://asciinema.org/a/PPRpRJtINLZ9tOqdnD2cLJBlU.svg)](https://asciinema.org/a/PPRpRJtINLZ9tOqdnD2cLJBlU) <br/>
+<br/>
 Json format<br/>
 [![asciicast](https://asciinema.org/a/xQ67KUK4SfH1yTDOxj97Klz5V.svg)](https://asciinema.org/a/xQ67KUK4SfH1yTDOxj97Klz5V) <br/>
 Differense of files witn nest structure:<br/>
 <br/>
-Stylish format(default)<br/>
+<b>Stylish format(default)<b/><br/>
 [![asciicast](https://asciinema.org/a/6sTwuA2ZYJeYSGnacuF0dYfGb.svg)](https://asciinema.org/a/6sTwuA2ZYJeYSGnacuF0dYfGb) <br/>
+<br/>
 Plain format<br/>
 [![asciicast](https://asciinema.org/a/ynj0doQQ2pWqerk9bDNrTIcNT.svg)](https://asciinema.org/a/ynj0doQQ2pWqerk9bDNrTIcNT) <br/>
+<br/>
 Json format<br/>
 [![asciicast](https://asciinema.org/a/Ifn6NA8MtNulXkBa1CPkWumxV.svg)](https://asciinema.org/a/Ifn6NA8MtNulXkBa1CPkWumxV) <br/>
 
