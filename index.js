@@ -6,7 +6,7 @@ import formatPlain from './src/formatters/plain.js';
 import formatJson from './src/formatters/json.js';
 import readFile from './utils.js';
 
-export default function genDiff(filePath1, filePath2, format = 'default') {
+export default function genDiff(filePath1, filePath2, format = 'stylish') {
   const contentOfFirst = readFile(filePath1);
   const contentOfSecond = readFile(filePath2);
 
@@ -21,7 +21,6 @@ export default function genDiff(filePath1, filePath2, format = 'default') {
       return formatPlain(diffTree);
     case 'json':
       return formatJson(diffTree);
-    default:
-      return formatStylish(diffTree);
+    default: throw new Error('Unknown format');
   }
 }
