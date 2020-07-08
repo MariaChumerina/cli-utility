@@ -1,25 +1,14 @@
-import fs from 'fs';
-import path from 'path';
 import yaml from 'js-yaml';
 import ini from 'ini';
 
-export default function parse(filename) {
-  const format = path.extname(filename);
-  const readingFile = fs.readFileSync(path.resolve(process.cwd(), `${filename}`), 'utf-8');
-
-  let result;
-  switch (format) {
+export default function parse(fileContents, extname) {
+  switch (extname) {
     case '.json':
-      result = JSON.parse(readingFile);
-      break;
+      return JSON.parse(fileContents);
     case '.yaml':
-      result = yaml.safeLoad(readingFile);
-      break;
+      return yaml.safeLoad(fileContents);
     case '.ini':
-      result = ini.parse(readingFile);
-      break;
+      return ini.parse(fileContents);
     default: throw new Error('Unknown format');
   }
-
-  return result;
 }
