@@ -36,6 +36,7 @@ Plain format<br/>
 <br/>
 Json format<br/>
 [![asciicast](https://asciinema.org/a/xQ67KUK4SfH1yTDOxj97Klz5V.svg)](https://asciinema.org/a/xQ67KUK4SfH1yTDOxj97Klz5V) <br/>
+<br/>
 <b>Differense of files witn nest structure:</b><br/>
 <br/>
 Stylish format(default)<br/>
