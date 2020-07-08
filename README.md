@@ -8,7 +8,11 @@ Cli utility for calculating the difference in configuration files. Formats: json
 <h3>Clone these package and run commands:</h3>
 ```sh
 make install
+```
+```sh
 make pusblish
+```
+```sh
 make link
 ```
 <br/>
