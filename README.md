@@ -6,16 +6,17 @@
 Cli utility for calculating the difference in configuration files. Formats: json, yaml, ini.
 <br/>
 <h3>Clone these package and run commands:</h3>
-<code>
+```sh
 make install
-
 make pusblish
-
 make link
-</code>
+```
 <br/>
 <h3>Usage</h3>
-<code>gendiff filepath1 filepath2</code><br/>
+
+```sh
+gendiff filepath1 filepath2
+```
 <br/>
 
 Differense of files with flat structure<br/>
