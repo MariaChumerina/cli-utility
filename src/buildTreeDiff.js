@@ -1,22 +1,23 @@
-import _ from 'lodash';
+import has from 'lodash/has.js';
+import union from 'lodash/union.js';
+import isObject from 'lodash/isObject.js';
+import isEqual from 'lodash/isEqual.js';
 
 export default function buildTreeDiff(originalObj, modifiedObj) {
-  const keys = _.union(Object.keys(originalObj), Object.keys(modifiedObj));
+  const keys = union(Object.keys(originalObj), Object.keys(modifiedObj));
   return keys.flatMap((key) => {
-    const hasFirstKey = _.has(originalObj, key);
-    const hasSecondKey = _.has(modifiedObj, key);
-    if (hasFirstKey && !hasSecondKey) {
+    if (has(originalObj, key) && !has(modifiedObj, key)) {
       return [{ status: 'deleted', key, beforeValue: originalObj[key] }];
     }
-    if (!hasFirstKey && hasSecondKey) {
+    if (!has(originalObj, key) && has(modifiedObj, key)) {
       return [{ status: 'inserted', key, afterValue: modifiedObj[key] }];
     }
-    if (_.isObject(originalObj[key]) && _.isObject(modifiedObj[key])) {
+    if (isObject(originalObj[key]) && isObject(modifiedObj[key])) {
       return [{
         isObject: true, key, children: [...buildTreeDiff(originalObj[key], modifiedObj[key])],
       }];
     }
-    if (!_.isEqual(originalObj[key], modifiedObj[key])) {
+    if (!isEqual(originalObj[key], modifiedObj[key])) {
       return [{
         status: 'changed', key, beforeValue: originalObj[key], afterValue: modifiedObj[key],
       }];
