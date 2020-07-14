@@ -1,20 +1,17 @@
 [
   {
-    "status": "unchanged",
+    "isObject": true,
     "key": "common",
-    "value": "object",
     "children": [
       {
         "status": "unchanged",
         "key": "setting1",
-        "beforeValue": "Value 1",
-        "children": []
+        "beforeValue": "Value 1"
       },
       {
         "status": "deleted",
         "key": "setting2",
-        "beforeValue": 200,
-        "children": []
+        "beforeValue": 200
       },
       {
         "status": "changed",
@@ -22,61 +19,52 @@
         "beforeValue": true,
         "afterValue": {
           "key": "value"
-        },
-        "children": []
+        }
       },
       {
-        "status": "unchanged",
+        "isObject": true,
         "key": "setting6",
-        "value": "object",
         "children": [
           {
             "status": "unchanged",
             "key": "key",
-            "beforeValue": "value",
-            "children": []
+            "beforeValue": "value"
           },
           {
             "status": "inserted",
             "key": "ops",
-            "afterValue": "vops",
-            "children": []
+            "afterValue": "vops"
           }
         ]
       },
       {
         "status": "inserted",
         "key": "follow",
-        "afterValue": false,
-        "children": []
+        "afterValue": false
       },
       {
         "status": "inserted",
         "key": "setting5",
         "afterValue": {
           "key5": "value5"
-        },
-        "children": []
+        }
       }
     ]
   },
   {
-    "status": "unchanged",
+    "isObject": true,
     "key": "group1",
-    "value": "object",
     "children": [
       {
         "status": "changed",
         "key": "baz",
         "beforeValue": "bas",
-        "afterValue": "bars",
-        "children": []
+        "afterValue": "bars"
       },
       {
         "status": "unchanged",
         "key": "foo",
-        "beforeValue": "bar",
-        "children": []
+        "beforeValue": "bar"
       },
       {
         "status": "changed",
@@ -84,8 +72,7 @@
         "beforeValue": {
           "key": "value"
         },
-        "afterValue": "str",
-        "children": []
+        "afterValue": "str"
       }
     ]
   },
@@ -94,15 +81,13 @@
     "key": "group2",
     "beforeValue": {
       "abc": 12345
-    },
-    "children": []
+    }
   },
   {
     "status": "inserted",
     "key": "group3",
     "afterValue": {
       "fee": 100500
-    },
-    "children": []
+    }
   }
 ]

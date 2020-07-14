@@ -7,25 +7,25 @@ export default function buildTreeDiff(originalObj, modifiedObj) {
     const hasSecondKey = _.has(modifiedObj, key);
     if (hasFirstKey && !hasSecondKey) {
       return [{
-        status: 'deleted', key, beforeValue: originalObj[key], children: [],
+        status: 'deleted', key, beforeValue: originalObj[key],
       }];
     } if (!hasFirstKey && hasSecondKey) {
       return [{
-        status: 'inserted', key, afterValue: modifiedObj[key], children: [],
+        status: 'inserted', key, afterValue: modifiedObj[key],
       }];
     }
     if (_.isObject(originalObj[key]) && _.isObject(modifiedObj[key])) {
       return [{
-        status: 'unchanged', key, value: 'object', children: [...buildTreeDiff(originalObj[key], modifiedObj[key])],
+        isObject: true, key, children: [...buildTreeDiff(originalObj[key], modifiedObj[key])],
       }];
     }
     if (!_.isEqual(originalObj[key], modifiedObj[key])) {
       return [{
-        status: 'changed', key, beforeValue: originalObj[key], afterValue: modifiedObj[key], children: [],
+        status: 'changed', key, beforeValue: originalObj[key], afterValue: modifiedObj[key],
       }];
     }
     return [{
-      status: 'unchanged', key, beforeValue: originalObj[key], children: [],
+      status: 'unchanged', key, beforeValue: originalObj[key],
     }];
   });
 }

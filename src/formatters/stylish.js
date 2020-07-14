@@ -27,9 +27,9 @@ function formatStr(node, spaces, depth) {
 
 function formatTree(subTree, depth = 1) {
   const formatted = subTree.flatMap((node) => {
-    const { key, children } = node;
+    const { key, isObject, children } = node;
     const spaces = ' '.repeat(depth * tabLength - tabLength / 2);
-    if (children.length > 0) {
+    if (isObject) {
       const formattedChildren = formatTree(children, depth + 1);
       return `${spaces}  ${key}: ${formattedChildren}${spaces}  }\n`;
     }
