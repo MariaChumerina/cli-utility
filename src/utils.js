@@ -1,6 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
-export default function readFile(filename) {
-  return fs.readFileSync(path.resolve(process.cwd(), `${filename}`), 'utf-8');
+export function getPath(filename) {
+  return path.resolve(process.cwd(), `${filename}`);
+}
+
+export function readFile(filePath) {
+  return fs.readFileSync(filePath, 'utf-8');
 }
