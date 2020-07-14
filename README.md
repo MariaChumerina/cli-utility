@@ -5,19 +5,12 @@
 
 Cli utility for calculating the difference in configuration files. Formats: json, yaml, ini.
 <br/>
-<h3>Clone these package and run commands:</h3>
+<h3>Contributing:</h3>
 
 ```sh
 make install
 ```
 
-```sh
-make pusblish
-```
-
-```sh
-make link
-```
 <br/>
 <h3>Usage</h3>
 
