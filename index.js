@@ -1,10 +1,10 @@
 import path from 'path';
 import buildTreeDiff from './src/buildTreeDiff.js';
-import parse from './parsers.js';
+import parse from './src/parsers.js';
 import formatStylish from './src/formatters/stylish.js';
 import formatPlain from './src/formatters/plain.js';
 import formatJson from './src/formatters/json.js';
-import readFile from './utils.js';
+import readFile from './src/utils.js';
 
 export default function genDiff(filePath1, filePath2, format = 'stylish') {
   const contentOfFirst = readFile(filePath1);

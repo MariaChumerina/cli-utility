@@ -7,7 +7,8 @@ export default function buildTreeDiff(originalObj, modifiedObj) {
     const hasSecondKey = _.has(modifiedObj, key);
     if (hasFirstKey && !hasSecondKey) {
       return [{ status: 'deleted', key, beforeValue: originalObj[key] }];
-    } if (!hasFirstKey && hasSecondKey) {
+    }
+    if (!hasFirstKey && hasSecondKey) {
       return [{ status: 'inserted', key, afterValue: modifiedObj[key] }];
     }
     if (_.isObject(originalObj[key]) && _.isObject(modifiedObj[key])) {
