@@ -3,26 +3,29 @@ import _ from 'lodash';
 export default function buildTreeDiff(originalObj, modifiedObj) {
   const keys = _.union(Object.keys(originalObj), Object.keys(modifiedObj));
   return keys.flatMap((key) => {
-    const beforeValue = originalObj[key];
-    const afterValue = modifiedObj[key];
     const hasFirstKey = _.has(originalObj, key);
     const hasSecondKey = _.has(modifiedObj, key);
-    if (hasFirstKey && hasSecondKey) {
-      const modified = _.isEqual(beforeValue, afterValue) ? 'unchanged' : 'changed';
-      const children = _.isObject(beforeValue) && _.isObject(afterValue)
-        ? [...buildTreeDiff(beforeValue, afterValue)] : [];
+    if (hasFirstKey && !hasSecondKey) {
       return [{
-        modified, key, beforeValue, afterValue, children,
-      }];
-    } if (hasFirstKey && !hasSecondKey) {
-      return [{
-        modified: 'deleted', key, beforeValue, afterValue, children: [],
+        status: 'deleted', key, beforeValue: originalObj[key], children: [],
       }];
     } if (!hasFirstKey && hasSecondKey) {
       return [{
-        modified: 'inserted', key, beforeValue, afterValue, children: [],
+        status: 'inserted', key, afterValue: modifiedObj[key], children: [],
       }];
     }
-    return [];
+    if (_.isObject(originalObj[key]) && _.isObject(modifiedObj[key])) {
+      return [{
+        status: 'unchanged', key, value: 'object', children: [...buildTreeDiff(originalObj[key], modifiedObj[key])],
+      }];
+    }
+    if (!_.isEqual(originalObj[key], modifiedObj[key])) {
+      return [{
+        status: 'changed', key, beforeValue: originalObj[key], afterValue: modifiedObj[key], children: [],
+      }];
+    }
+    return [{
+      status: 'unchanged', key, beforeValue: originalObj[key], children: [],
+    }];
   });
 }

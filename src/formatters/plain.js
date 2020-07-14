@@ -11,11 +11,11 @@ function formatValue(value) {
 }
 
 function formatStr(node, fullKey) {
-  const { modified, beforeValue, afterValue } = node;
+  const { status, beforeValue, afterValue } = node;
   const formattedBeforeValue = formatValue(beforeValue);
   const formattedAfterValue = formatValue(afterValue);
 
-  switch (modified) {
+  switch (status) {
     case 'changed':
       return `Property '${fullKey}' was updated. From ${formattedBeforeValue} to ${formattedAfterValue}`;
     case 'deleted':

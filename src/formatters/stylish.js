@@ -8,11 +8,11 @@ function formatObj(obj, depth) {
 
 function formatStr(node, spaces, depth) {
   const {
-    key, modified, beforeValue, afterValue,
+    key, status, beforeValue, afterValue,
   } = node;
   const formattedBeforeValue = typeof beforeValue === 'object' ? formatObj(beforeValue, depth + 1) : beforeValue;
   const formattedAfterValue = typeof afterValue === 'object' ? formatObj(afterValue, depth + 1) : afterValue;
-  switch (modified) {
+  switch (status) {
     case 'unchanged':
       return `${spaces}  ${key}: ${formattedBeforeValue}\n`;
     case 'inserted':

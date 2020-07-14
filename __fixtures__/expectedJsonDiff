@@ -1,45 +1,23 @@
 [
   {
-    "modified": "changed",
+    "status": "unchanged",
     "key": "common",
-    "beforeValue": {
-      "setting1": "Value 1",
-      "setting2": 200,
-      "setting3": true,
-      "setting6": {
-        "key": "value"
-      }
-    },
-    "afterValue": {
-      "follow": false,
-      "setting1": "Value 1",
-      "setting3": {
-        "key": "value"
-      },
-      "setting5": {
-        "key5": "value5"
-      },
-      "setting6": {
-        "key": "value",
-        "ops": "vops"
-      }
-    },
+    "value": "object",
     "children": [
       {
-        "modified": "unchanged",
+        "status": "unchanged",
         "key": "setting1",
         "beforeValue": "Value 1",
-        "afterValue": "Value 1",
         "children": []
       },
       {
-        "modified": "deleted",
+        "status": "deleted",
         "key": "setting2",
         "beforeValue": 200,
         "children": []
       },
       {
-        "modified": "changed",
+        "status": "changed",
         "key": "setting3",
         "beforeValue": true,
         "afterValue": {
@@ -48,25 +26,18 @@
         "children": []
       },
       {
-        "modified": "changed",
+        "status": "unchanged",
         "key": "setting6",
-        "beforeValue": {
-          "key": "value"
-        },
-        "afterValue": {
-          "key": "value",
-          "ops": "vops"
-        },
+        "value": "object",
         "children": [
           {
-            "modified": "unchanged",
+            "status": "unchanged",
             "key": "key",
             "beforeValue": "value",
-            "afterValue": "value",
             "children": []
           },
           {
-            "modified": "inserted",
+            "status": "inserted",
             "key": "ops",
             "afterValue": "vops",
             "children": []
@@ -74,13 +45,13 @@
         ]
       },
       {
-        "modified": "inserted",
+        "status": "inserted",
         "key": "follow",
         "afterValue": false,
         "children": []
       },
       {
-        "modified": "inserted",
+        "status": "inserted",
         "key": "setting5",
         "afterValue": {
           "key5": "value5"
@@ -90,37 +61,25 @@
     ]
   },
   {
-    "modified": "changed",
+    "status": "unchanged",
     "key": "group1",
-    "beforeValue": {
-      "baz": "bas",
-      "foo": "bar",
-      "nest": {
-        "key": "value"
-      }
-    },
-    "afterValue": {
-      "foo": "bar",
-      "baz": "bars",
-      "nest": "str"
-    },
+    "value": "object",
     "children": [
       {
-        "modified": "changed",
+        "status": "changed",
         "key": "baz",
         "beforeValue": "bas",
         "afterValue": "bars",
         "children": []
       },
       {
-        "modified": "unchanged",
+        "status": "unchanged",
         "key": "foo",
         "beforeValue": "bar",
-        "afterValue": "bar",
         "children": []
       },
       {
-        "modified": "changed",
+        "status": "changed",
         "key": "nest",
         "beforeValue": {
           "key": "value"
@@ -131,7 +90,7 @@
     ]
   },
   {
-    "modified": "deleted",
+    "status": "deleted",
     "key": "group2",
     "beforeValue": {
       "abc": 12345
@@ -139,7 +98,7 @@
     "children": []
   },
   {
-    "modified": "inserted",
+    "status": "inserted",
     "key": "group3",
     "afterValue": {
       "fee": 100500

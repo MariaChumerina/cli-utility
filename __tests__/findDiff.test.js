@@ -7,7 +7,7 @@ const getFixturePath = (filename) => path.join('__fixtures__', filename);
 const extensions = ['.json', '.yaml', '.ini'];
 const expectedStylishDiff = fs.readFileSync('__fixtures__/expectedStylishDiff', 'utf-8');
 const expectedPlainDiff = fs.readFileSync('__fixtures__/expectedPlainDiff', 'utf-8');
-const expectedJsonDiff = fs.readFileSync('__fixtures__/expectedJsonDiff.json', 'utf-8');
+const expectedJsonDiff = fs.readFileSync('__fixtures__/expectedJsonDiff', 'utf-8');
 
 describe('findDiff', () => {
   test('should work', () => {
