@@ -14,7 +14,7 @@ export default function buildTreeDiff(originalObj, modifiedObj) {
     }
     if (isObject(originalObj[key]) && isObject(modifiedObj[key])) {
       return [{
-        isObject: true, key, children: [...buildTreeDiff(originalObj[key], modifiedObj[key])],
+        status: 'object', key, children: [...buildTreeDiff(originalObj[key], modifiedObj[key])],
       }];
     }
     if (!isEqual(originalObj[key], modifiedObj[key])) {

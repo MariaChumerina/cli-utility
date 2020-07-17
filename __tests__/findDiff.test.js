@@ -1,7 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
 import path from 'path';
 import fs from 'fs';
-import genDiff from '../src';
+import genDiff from '../index.js';
 
 const getFixturePath = (filename) => path.join('__fixtures__', filename);
 const extensions = ['.json', '.yaml', '.ini'];

@@ -1,6 +1,6 @@
 [
   {
-    "isObject": true,
+    "status": "object",
     "key": "common",
     "children": [
       {
@@ -22,7 +22,7 @@
         }
       },
       {
-        "isObject": true,
+        "status": "object",
         "key": "setting6",
         "children": [
           {
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "isObject": true,
+    "status": "object",
     "key": "group1",
     "children": [
       {

@@ -30,9 +30,9 @@ function formatStr(node, fullKey) {
 
 export default function formatPlain(tree) {
   const iter = (subtree, parent = null) => subtree.flatMap((node) => {
-    const { key, isObject, children } = node;
+    const { key, status, children } = node;
     const fullKey = parent ? `${parent}.${key}` : key;
-    return isObject ? iter(children, fullKey) : formatStr(node, fullKey);
+    return status === 'object' ? iter(children, fullKey) : formatStr(node, fullKey);
   });
 
   return iter(tree).join('\n');
