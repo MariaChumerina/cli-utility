@@ -6,10 +6,10 @@ import isEqual from 'lodash/isEqual.js';
 export default function buildTreeDiff(originalObj, modifiedObj) {
   const keys = union(Object.keys(originalObj), Object.keys(modifiedObj));
   return keys.flatMap((key) => {
-    if (has(originalObj, key) && !has(modifiedObj, key)) {
+    if (!has(modifiedObj, key)) {
       return [{ status: 'deleted', key, beforeValue: originalObj[key] }];
     }
-    if (!has(originalObj, key) && has(modifiedObj, key)) {
+    if (!has(originalObj, key)) {
       return [{ status: 'inserted', key, afterValue: modifiedObj[key] }];
     }
     if (isObject(originalObj[key]) && isObject(modifiedObj[key])) {
